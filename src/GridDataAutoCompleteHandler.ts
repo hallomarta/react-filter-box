@@ -44,7 +44,7 @@ export default class GridDataAutoCompleteHandler extends BaseAutoCompleteHandler
         })
 
         if (found) {
-            return found.customOperatorFunc(parsedCategory);
+            return found.customOperatorFunc(found);
         }
 
         return ["==", "!=", "contains", "!contains"];
@@ -73,6 +73,6 @@ export interface Option {
     columnField: string;
     columnText?: string;
     type: string;
-    customOperatorFunc?: (category: string) => string[]
+    customOperatorFunc?: (found: Option) => string[]
     customValuesFunc?: (found: Option) => string[]
 }
